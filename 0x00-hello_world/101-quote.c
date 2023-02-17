@@ -1,6 +1,4 @@
-#include<stdio.h>
-#include<stdlib.h>
-#define exa printf
+#include <unistd.h>
 
 /**
  * main - Entry point
@@ -11,6 +9,7 @@
 
 int main(void)
 {
-	exa("and that piece of art is useful\n" - Dora Korpar, 2015-10-19");
+	char str[] = "and that of art is useful\" - Dora Korpar, 2015-10-19";
+	write(2, "and that of art is useful\" - Dora Korpar, 2015-10-19\n", sizeof(str));
 	return (1);
 }
