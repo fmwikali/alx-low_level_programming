@@ -1,30 +1,29 @@
 #include "main.h"
-
 /**
- * _sqrt_recursion - returns the natural square of a number.
- * @n: number to get square root of
- *
- * Return: -1 if no square root found, sqrt if found.
+ * is_prime_number - returns the natural square root of a number.
+ * @n: integer to check
+ * Return: 1 if prime number, 0 if otherwise
  */
-int _sqrt_recursion(int n)
+int is_prime_number(int n)
 {
-	return (sqrt_calc(n, 1));
+	if (n <= 1)
+		return (0);
+	return (is_prime_calc(n, 2));
 }
 /**
- * sqrt_calc - calculate sqrt
- * @n: number to find square root of
- * @x: for iteration
- *
- * Return: x (square root of n)
+ * is_prime_calc - actual calculation for prime number check
+ * @n: integer to check
+ * @x: used for comparison and iteration
+ * Return:0 or 1;
  */
-int sqrt_calc(int n, int x)
+int is_prime_calc(int n, int x)
 {
-	if (n <= 0)
-		return (-1);
-	if (x * x > n)
-		return (-1);
-	if (n == x * x)
-		return (x);
+	if (x < n)
+	{
+		if (n % x == 0)
+			return (0);
 
-	return (sqrt_calc(n, x + 1));
+		return (is_prime_calc(n, x + 1));
+	}
+	return (1);
 }
